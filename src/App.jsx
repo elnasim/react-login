@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransition';
+import CSSTransitionGroup from 'react-transition-group/Transition';
 import './App.css';
 
 import Form from './components/Form';
@@ -22,10 +22,11 @@ class App extends Component {
         <div className="App">
           <CSSTransitionGroup
               transitionName="fade"
-              transitionAppear={true}
-              transitionAppearTimeout={500}
-              transitionEnter={false}
-              transitionLeaveTimeout={300}>
+              appear={true}
+              timeout={{
+                enter: 300,
+                exit: 500
+              }}>
             {this.state.mounted && <Form onSubmit={this.handleSubmit}/>}
           </CSSTransitionGroup>
         </div>

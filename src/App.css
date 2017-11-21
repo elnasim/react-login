@@ -2,12 +2,6 @@
   width: 500px;
   display: flex;
   flex-direction: column;
-  opacity: 1;
-  transition: all 1s ease;
-}
-
-.none{
-  opacity: 0;
 }
 
 .form-input{
