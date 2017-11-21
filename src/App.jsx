@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import CSSTransitionGroup from 'react-transition-group/CSSTransition';
 import './App.css';
 
 import Form from './components/Form';
@@ -17,10 +18,16 @@ class App extends Component {
   };
 
   render() {
-    var visible = this.state.mounted;
     return (
         <div className="App">
-          <Form onSubmit={this.handleSubmit} className={'signup-form ' + (visible ? '' : 'none')}/>
+          <CSSTransitionGroup
+              transitionName="fade"
+              transitionAppear={true}
+              transitionAppearTimeout={500}
+              transitionEnter={false}
+              transitionLeaveTimeout={300}>
+            {this.state.mounted && <Form onSubmit={this.handleSubmit}/>}
+          </CSSTransitionGroup>
         </div>
     );
   }
